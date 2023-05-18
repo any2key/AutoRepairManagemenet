@@ -13,7 +13,7 @@
 
     <ng-container matColumnDef="order">
       <th mat-header-cell *matHeaderCellDef style="text-align:center">Заказ</th>
-      <td mat-cell *matCellDef="let element"> Заказ №{{element.order.id}} от {{element.order.dateTime|date:"dd.MM.yyyy HH:mm"}} </td>
+      <td mat-cell *matCellDef="let element"> Заказ №{{element?.order?.id}} от {{element?.order?.dateTime|date:"dd.MM.yyyy HH:mm"}} </td>
     </ng-container>
 
 
