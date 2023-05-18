@@ -1,0 +1,62 @@
+<mat-card>
+  <form [formGroup]="form" autocomplete="off">
+    <mat-card-header>
+      <mat-card-title>
+        {{header}}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div>
+        <mat-form-field appearance="fill" style="width:100%">
+          <mat-label>Заказ</mat-label>
+          <mat-select formControlName="order">
+            <mat-option *ngFor="let c of orders" [value]="c">Заказ №{{c.id}} от {{c.dateTime|date:"dd.MM.yyyy"}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Статус</mat-label>
+          <mat-select formControlName="orderStatus">
+            <mat-option [value]="0">Не готов</mat-option>
+            <mat-option [value]="1">Готов</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Качество работы</mat-label>
+          <mat-select formControlName="jobQuality">
+            <mat-option [value]="0">Низкое</mat-option>
+            <mat-option [value]="1">Среднее</mat-option>
+            <mat-option [value]="2">Высокое</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Отзыв клиента</mat-label>
+          <mat-select formControlName="clientReview">
+            <mat-option [value]="0">Очень негативный</mat-option>
+            <mat-option [value]="1">Негативный</mat-option>
+            <mat-option [value]="2">Нейтральный</mat-option>
+            <mat-option [value]="3">Хороший</mat-option>
+            <mat-option [value]="4">Отличный</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions style="padding-left:10%;padding-right:10%">
+      <button cdkFocusInitial type="submit" mat-raised-button color="primary" style="width: 40%" (click)="apply()" #btnRef="matButton">Сохранить</button>
+      <button mat-raised-button style="width: 40%" (click)="onNoClick()">Отмена</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

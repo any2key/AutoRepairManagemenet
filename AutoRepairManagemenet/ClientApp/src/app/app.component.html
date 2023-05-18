@@ -1,0 +1,102 @@
+
+<mat-drawer-container class="sidenav-container" style="height: 100vh">
+
+  <mat-drawer #drawer class="sidenav" mode="side" style="width:17rem;height:100vh">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <button mat-button style="width:100%;text-align:start" (click)="route('/clients')">
+          <span class="material-icons">
+            group
+          </span>
+          <span style="align-self:end">
+            Клиенты
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item role="listitem">
+        <button mat-button style="width:100%;text-align:start" (click)="route('/employers')">
+          <span class="material-icons">
+            badge
+          </span>
+          <span style="align-self:end">
+            Сотрудники
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item role="listitem">
+        <button mat-button style="width:100%;text-align:start" (click)="route('/autoparts')">
+          <span class="material-icons">
+            car_repair
+          </span>
+          <span style="align-self:end">
+            Каталог запчастей
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+
+      <mat-list-item role="listitem">
+        <button mat-button style="width:100%;text-align:start" (click)="route('/jobs')">
+          <span class="material-icons">
+            handyman
+          </span>
+          <span style="align-self:end">
+            Работы
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item role="listitem">
+        <button mat-button style="width:100%;text-align:start" (click)="route('/orders')">
+          <span class="material-icons">
+            grading
+          </span>
+          <span style="align-self:end">
+            Заказы
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+
+      <mat-list-item role="listitem">
+        <button mat-button style="width:100%;text-align:start" (click)="route('/documents')">
+          <span class="material-icons">
+            assignment
+          </span>
+          <span style="align-self:end">
+            Документы
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+
+    </mat-list>
+  </mat-drawer>
+
+
+
+
+
+
+
+  <mat-toolbar color="primary">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a routerLink="/">AutoRepair Management</a>
+
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+
+</mat-drawer-container>
+
+
+<button mat-raised-button color="primary">TEst</button>

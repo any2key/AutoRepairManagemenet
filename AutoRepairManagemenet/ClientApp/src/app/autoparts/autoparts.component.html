@@ -1,0 +1,60 @@
+<mat-toolbar>
+  <span>Запчасти</span>
+</mat-toolbar>
+<div class="mat-elevation-z8" style="margin-left:20%;margin-right:20%;margin-top:4%">
+
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef style="text-align:center"> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef style="text-align:center">Наименование</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef style="text-align:center">Цена</th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <button (click)="openDialog(element,1)" mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Редактировать</span>
+          </button>
+          <button (click)="remove(element.id)" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Удалить</span>
+          </button>
+        </mat-menu>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 aria-label="Select page">
+  </mat-paginator>
+  <button mat-raised-button color="primary" (click)="openDialog(null,0)" style="margin:10px;">Добавить запчасть</button>
+</div>
+
+
